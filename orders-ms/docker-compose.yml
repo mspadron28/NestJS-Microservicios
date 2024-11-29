@@ -1,0 +1,17 @@
+  version: '3.8'  
+
+  services:
+    orders-db: 
+      image: postgres:17 
+      container_name: orders_database 
+      environment:  
+        POSTGRES_USER: mspadron  
+        POSTGRES_PASSWORD: mspadron  
+        POSTGRES_DB: ordersdb  
+      ports:
+        - "5469:5432"  
+      volumes:
+        - ./backuppg:/var/lib/postgresql/data
+
+  volumes:
+    backuppg:  
