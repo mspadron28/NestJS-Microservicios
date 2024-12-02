@@ -52,4 +52,10 @@ export class ProductsController {
   remove(@Payload('id',ParseIntPipe) id: number) {
     return this.productsService.remove(id);
   }
+
+  //Validar los ids mediante un arreglo de ellos
+  @MessagePattern({ cmd: 'validate_products' })
+  validateProduct(@Payload() ids: number[]){
+    return this.productsService.validateProducts(ids);
+  }
 }
